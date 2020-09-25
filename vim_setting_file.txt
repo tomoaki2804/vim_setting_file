@@ -1,0 +1,81 @@
+
+""""""""""
+" 設定メモ
+""""""""""
+" UNIX and CUI
+" 場所：~/（homeディレクトリ）
+" ファイル名：.vimrc（無いなら作る）
+
+" WIN and GUI(Neovim)
+" 場所：%LOCALAPPDATA%¥nvim（nvimは無いなら作る）
+" ファイル名：init.vim（無いなら作る）
+
+" UNIX and GUI(Neovim)　→　未確認
+" 場所：~/.comfig/nvim（nvimは無いなら作る）
+" ファイル名：init.vim（無いなら作る）
+
+""""""""""
+" 基本設定
+""""""""""
+" タイトルバーにパスの表示
+set title
+" 行番号の表示
+set number
+" 常にタブページを表示する
+set showtabline=2
+
+
+""""""""""
+" 配色
+""""""""""
+" シンタックスを有効
+syntax on
+" 行番号の色
+highlight LineNr ctermfg=darkyellow
+
+""""""""""
+" タブ・インデント
+""""""""""
+" タブ文字の幅
+set tabstop=4
+" vimが挿入するインデント幅
+set shiftwidth=4
+" 行頭でtabを打った時に「shiftwidth」だけインデントする
+set smarttab
+" 改行時にインデントを継続する
+set autoindent
+" 改行時に入力された行の末尾に合わせて、次の行のインデントを増減する
+set smartindent
+
+""""""""""
+" その他
+""""""""""
+" コマンドモードで、tabキーでのファイル名補完
+set wildmenu
+
+""""""""""
+" メモ
+""""""""""
+" Neovimのインストール
+"　Windowsならば、以下からNeovimをインストールし、neovim-qtを実行すると、GUI上でvimが動かせる
+"　　https://vim.blue/neovim-install-simple/
+"　　　「Install from download」の「Latest stable release」をクリック
+"　　　OSに応じた方法でダウンロードする
+"　　winの場合、インストール先はプログラムフォルダ配下推奨、neovim-qtモジュールはNeovim/bin配下
+"　書き方は、vimrcと同様で良い（一部、動かない設定もある）
+"
+" シンタックスの色
+"　https://github.com/tomasr/molokaiから「colors」フォルダをダウンロード
+"　ダウンロードしたフォルダを（中身はmolokai.vimのみ）、init.vimと同じ配下に配置
+"　init.vimで、シンタックスが有効になっていれば「colorscheme molokai」を追加
+"　（多分、vimrcでも同じ）
+"
+" twigのシンタックスハイライト
+"　以下からファイルをダウンロードする
+"　　jinja.vim（http://www.vim.org/scripts/download_script.php?src_id=8666 ）
+"　　htmljinja.vim （http://www.vim.org/scripts/download_script.php?src_id=6961）
+"　init.vimと同じ配下に、syntaxとftdetectのフォルダを作成
+"　syntaxフォルダに、ダウンロードしたファイル2つを入れる
+"　ftdetectフォルダに、twig.vimのファイルを作成する
+"　作成したファイルに、以下を記述する
+"　　autocmd BufNewFile,BufRead *.twig set filetype=htmljinja
